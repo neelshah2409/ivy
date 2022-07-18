@@ -268,6 +268,15 @@
 
 
 <div class="viewcode-block" id="multi_index_nest"><a class="viewcode-back" href="../../../../functional/ivy/nest/multi_index_nest.html#ivy.functional.ivy.nest.multi_index_nest">[docs]</a><span class="k">def</span> <span class="nf">multi_index_nest</span><span class="p">(</span><span class="n">nest</span><span class="p">,</span> <span class="n">indices</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">res</span><span class="o">==</span><span class="nb">type</span><span class="p">(</span><span class="n">nest</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">tuple</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">indices</span><span class="p">):</span>
+            <span class="n">index_nest</span><span class="p">(</span><span class="n">nest</span><span class="p">,</span><span class="n">index</span><span class="p">)</span>
+    
+    <span class="k">else</span> <span class="p">:</span>
+        <span class="n">tm</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">nest</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+        <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">tm</span><span class="p">):</span>
+            <span class="n">index_nest</span><span class="p">(</span><span class="n">nest</span><span class="p">,</span> <span class="n">index</span><span class="p">)</span>
+        
     <span class="sd">&quot;&quot;&quot;Repeatedly index a nested object, using a tuple of tuples of indices or keys in</span>
 <span class="sd">    the case of dicts.</span>
 
@@ -277,9 +286,11 @@
 <span class="sd">        The nested object to slice.</span>
 <span class="sd">    indices</span>
 <span class="sd">        A tuple of tuples of indices to apply.</span>
+<span class="sd">    keys</span>
+<span class="sd">        key values of nest if it is in dict</span>
 
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="p">[</span><span class="n">index_nest</span><span class="p">(</span><span class="n">nest</span><span class="p">,</span> <span class="n">index</span><span class="p">)</span> <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="n">indices</span><span class="p">]</span></div>
+<span class="sd">    &quot;&quot;&quot;</span></div>
+    
 
 
 <div class="viewcode-block" id="prune_nest_at_indices"><a class="viewcode-back" href="../../../../functional/ivy/nest/prune_nest_at_indices.html#ivy.functional.ivy.nest.prune_nest_at_indices">[docs]</a><span class="k">def</span> <span class="nf">prune_nest_at_indices</span><span class="p">(</span><span class="n">nest</span><span class="p">,</span> <span class="n">indices</span><span class="p">):</span>
